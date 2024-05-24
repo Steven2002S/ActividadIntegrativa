@@ -35,8 +35,6 @@ class HeaderComponent extends HTMLElement {
                     <a href="#Contact">Contacto</a>
                 </nav>
             </header>
-            <a href="#" class="back-to-top">&uarr;</a> <!-- Flecha para volver al inicio -->
-            </header>
         `;
     }
 }
