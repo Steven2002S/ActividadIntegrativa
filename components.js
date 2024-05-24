@@ -42,7 +42,7 @@ class HeaderComponent extends HTMLElement {
 customElements.define('header-component', HeaderComponent);
 
 
-// HeroComponent
+/// HeroComponent
 class HeroComponent extends HTMLElement {
     constructor() {
         super();
@@ -55,8 +55,7 @@ class HeroComponent extends HTMLElement {
             background-color: white;
             display: grid;
             grid-template-columns: repeat(12, 1fr);
-            gap: 4rem; /* Opcional: añade espacio entre las columnas */
-            
+            gap: 4rem;
         }
         .column {
             grid-column: span 6;
@@ -91,17 +90,17 @@ class HeroComponent extends HTMLElement {
         </style>
         <div class="hero" id="Hero">
             <div class="column">
-            <h1>Instalaciones y Servicios</h1>
-            <ul>
-                <li><strong>Sala de Urgencias:</strong> Atiende emergencias médicas y traumas, con personal capacitado para manejar situaciones críticas.</li>
-                <li><strong>Consultorios Médicos:</strong> Espacios donde se realizan consultas médicas y evaluaciones de rutina.</li>
-                <li><strong>Quirófanos:</strong> Áreas equipadas para realizar intervenciones quirúrgicas.</li>
-                <li><strong>Unidad de Cuidados Intensivos (UCI):</strong> Proporciona atención avanzada a pacientes en estado crítico.</li>
-                <li><strong>Laboratorio Clínico:</strong> Realiza análisis de muestras biológicas para apoyar en el diagnóstico de enfermedades.</li>
-                <li><strong>Imágenes Diagnósticas:</strong> Incluye rayos X, tomografías, resonancias magnéticas y ultrasonidos para diagnóstico por imagen.</li>
-                <li><strong>Farmacia:</strong> Dispensación de medicamentos prescritos a los pacientes hospitalizados y ambulatorios.</li>
-                <li><strong>Áreas de Hospitalización:</strong> Habitaciones para la estancia de pacientes que requieren cuidados continuos.</li>
-            </ul>
+                <h1>Instalaciones y Servicios</h1>
+                <ul>
+                    <li><strong>Sala de Urgencias:</strong> Atiende emergencias médicas y traumas, con personal capacitado para manejar situaciones críticas.</li>
+                    <li><strong>Consultorios Médicos:</strong> Espacios donde se realizan consultas médicas y evaluaciones de rutina.</li>
+                    <li><strong>Quirófanos:</strong> Áreas equipadas para realizar intervenciones quirúrgicas.</li>
+                    <li><strong>Unidad de Cuidados Intensivos (UCI):</strong> Proporciona atención avanzada a pacientes en estado crítico.</li>
+                    <li><strong>Laboratorio Clínico:</strong> Realiza análisis de muestras biológicas para apoyar en el diagnóstico de enfermedades.</li>
+                    <li><strong>Imágenes Diagnósticas:</strong> Incluye rayos X, tomografías, resonancias magnéticas y ultrasonidos para diagnóstico por imagen.</li>
+                    <li><strong>Farmacia:</strong> Dispensación de medicamentos prescritos a los pacientes hospitalizados y ambulatorios.</li>
+                    <li><strong>Áreas de Hospitalización:</strong> Habitaciones para la estancia de pacientes que requieren cuidados continuos.</li>
+                </ul>
             </div>
             <div class="column">
                 <div class="carousel">
@@ -115,7 +114,7 @@ class HeroComponent extends HTMLElement {
                 </div>
             </div>
         </div>
-       <hr> 
+        <hr> 
         `;
     }
 
@@ -127,6 +126,7 @@ class HeroComponent extends HTMLElement {
                 this.currentIndex = 0;
                 this.initControls();
                 this.showImage(this.currentIndex);
+                this.startAutoPlay();
             }
 
             initControls() {
@@ -149,6 +149,12 @@ class HeroComponent extends HTMLElement {
                 this.currentIndex = (this.currentIndex < this.images.length - 1) ? this.currentIndex + 1 : 0;
                 this.showImage(this.currentIndex);
             }
+
+            startAutoPlay() {
+                setInterval(() => {
+                    this.nextImage();
+                }, 3000); // Cambia de imagen cada 3 segundos (3000 milisegundos)
+            }
         }
 
         this.querySelectorAll('.carousel').forEach(carouselElement => {
@@ -158,6 +164,7 @@ class HeroComponent extends HTMLElement {
 }
 
 customElements.define('hero-component', HeroComponent);
+
 
 
 
