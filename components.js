@@ -24,15 +24,18 @@ class HeaderComponent extends HTMLElement {
                 nav a:hover {
                     color: #ffcc00; 
                 }
+                
             </style>
             <header>
                 <img src="img/logo.png" alt="Logo" style="width: 100px; height: auto;">
                 <h1>Hospital</h1>
                 <nav>
-                    <a href="#">Inicio</a>
-                    <a href="#">Servicios</a>
-                    <a href="#">Contacto</a>
+                    <a href="#Hero">Inicio</a>
+                    <a href="#Services">Servicios</a>
+                    <a href="#Contact">Contacto</a>
                 </nav>
+            </header>
+            <a href="#" class="back-to-top">&uarr;</a> <!-- Flecha para volver al inicio -->
             </header>
         `;
     }
@@ -88,7 +91,7 @@ class HeroComponent extends HTMLElement {
             cursor: pointer;
         }
         </style>
-        <div class="hero">
+        <div class="hero" id="Hero">
             <div class="column">
             <h1>Instalaciones y Servicios</h1>
             <ul>
@@ -127,23 +130,23 @@ class HeroComponent extends HTMLElement {
                 this.initControls();
                 this.showImage(this.currentIndex);
             }
-            
+
             initControls() {
                 this.carouselElement.querySelector('.prev').addEventListener('click', () => this.prevImage());
                 this.carouselElement.querySelector('.next').addEventListener('click', () => this.nextImage());
             }
-            
+
             showImage(index) {
                 this.images.forEach((img, i) => {
                     img.classList.toggle('active', i === index);
                 });
             }
-            
+
             prevImage() {
                 this.currentIndex = (this.currentIndex > 0) ? this.currentIndex - 1 : this.images.length - 1;
                 this.showImage(this.currentIndex);
             }
-            
+
             nextImage() {
                 this.currentIndex = (this.currentIndex < this.images.length - 1) ? this.currentIndex + 1 : 0;
                 this.showImage(this.currentIndex);
@@ -209,7 +212,7 @@ class ServicesComponent extends HTMLElement {
                     animation-delay: 1.5s;
                 }
             </style>
-            <section class="services">
+            <section class="services" id="Services">
                 <h2 style="grid-column: span 3;">Nuestros Servicios</h2>
                 <div class="service">
                     <img src="img/emergencia.jpg" alt="Emergencias">
@@ -279,7 +282,7 @@ class ContactComponent extends HTMLElement {
                     border-radius: 4px;
                 }
             </style>
-            <div class="contact-card">
+            <div class="contact-card" id="Contact">
                 <section class="contact">
                     <h2>Contacto</h2>
                     <form>
